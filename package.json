@@ -1,0 +1,35 @@
+{
+  "name": "jonki",
+  "version": "0.0.1",
+  "description": "news paper reader in terminal",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "uninstall": "rm -rf ~/.jonki/"
+  },
+  "bin": {
+    "jonki": "./bin/main.js"
+  },
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "cheerio": "^1.0.0-rc.2",
+    "encoding": "^0.1.12",
+    "inquirer": "^6.2.0",
+    "mkdirp": "^0.5.1",
+    "node-fetch": "^2.2.0",
+    "yargs": "^12.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zzzgit/jonki.git"
+  },
+  "engines": {
+    "node": ">10.9.0",
+    "npm": ">5.5.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zzzgit/jonki/issues"
+  },
+  "homepage": "https://github.com/zzzgit/jonki#readme"
+}
