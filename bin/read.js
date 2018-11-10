@@ -3,14 +3,14 @@ const path = require("path")
 const chalk = require('chalk')
 const samael = require("samael")
 
-const home = os.homedir()
+const house = path(os.homedir(), ".jonki")
 
 const read = (language) => {
 	if (!language) {
 		language = "en"
 	}
-	const cach_file = path.join(home, '.jonki/cache')
-	const index_file = path.join(home, '.jonki/index')
+	const cach_file = path.join(house, 'cache')
+	const index_file = path.join(house, 'index')
 	let article = null
 	let lastIndex = null
 	let currentIndex = null
@@ -21,7 +21,7 @@ const read = (language) => {
 		.then(lastIndex => {
 			if (language === "en") {
 				currentIndex = (lastIndex + 1) % article.length
-				return samael.writeToFile(path.join(home, '.jonki/index'), currentIndex)
+				return samael.writeToFile(path.join(house, 'index'), currentIndex)
 			}
 		})
 		.then(() => {
