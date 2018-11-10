@@ -1,8 +1,8 @@
 const os = require("os")
 const path = require("path")
 const inquirer = require('inquirer')
+const samael = require("samael")
 const Nyt = require("./parser/Nyt")
-const utils = require("../utils")
 const nyt = new Nyt()
 
 const home = os.homedir()
@@ -42,8 +42,8 @@ const inquire = () => {
 	}).then(answers => {
 		if (answers.service === "nyt") {
 			return nyt.getRows(answers.article)
-				.then(rows => utils.writeToFile(path.join(home, '.jonki/cache'), JSON.stringify(rows)))
-				.then(() => utils.writeToFile(path.join(home, '.jonki/index'), -1))
+				.then(rows => samael.writeToFile(path.join(home, '.jonki/cache'), JSON.stringify(rows)))
+				.then(() => samael.writeToFile(path.join(home, '.jonki/index'), -1))
 				.catch(e => {
 					if (e.code === 404) {
 						console.error("[jonki][download]: no english translation for this article")

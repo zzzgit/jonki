@@ -1,7 +1,7 @@
 const os = require("os")
 const path = require("path")
 const chalk = require('chalk')
-const utils = require("../utils")
+const samael = require("samael")
 
 const home = os.homedir()
 
@@ -14,14 +14,14 @@ const read = (language) => {
 	let article = null
 	let lastIndex = null
 	let currentIndex = null
-	return utils.readFromFile(cach_file)
+	return samael.readFromFile(cach_file)
 		.then(text => article = JSON.parse(text))
-		.then(() => utils.readFromFile(index_file))
+		.then(() => samael.readFromFile(index_file))
 		.then(index => lastIndex = (+index))
 		.then(lastIndex => {
 			if (language === "en") {
 				currentIndex = (lastIndex + 1) % article.length
-				return utils.writeToFile(path.join(home, '.jonki/index'), currentIndex)
+				return samael.writeToFile(path.join(home, '.jonki/index'), currentIndex)
 			}
 		})
 		.then(() => {

@@ -1,13 +1,13 @@
 import Parser from "./Parser"
 const cheerio = require('cheerio')
-const fetch = require("../../fetch")
+const samael = require("samael")
 import Answer from "./Answer"
 import Entity from "./Entity"
 
 class Nyt implements Parser {
     domain: string = "https://cn.nytimes.com"
     getRows(aid_url: string): Entity[] {
-        return fetch(this.domain + aid_url + "dual/").then(text => {
+        return samael.fetch(this.domain + aid_url + "dual/").then(text => {
             const $ = cheerio.load(text)
             const sections = $("main > div.article-area > article section div.article-body-item")
             if (!sections || !sections.length) {
@@ -46,7 +46,7 @@ class Nyt implements Parser {
         ])
     }
     getArticles(cid_url: string): Promise<Answer[]> {
-        return fetch(cid_url).then(text => {
+        return samael.fetch(cid_url).then(text => {
             const $ = cheerio.load(text)
             const articles = $(".regularSummaryHeadline a")
             const result = []
