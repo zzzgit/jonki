@@ -2,7 +2,10 @@
 const yargs = require("yargs")
 const download = require("./download")
 const read = require("./read.js")
+const updateNotifier = require('update-notifier')
 
+const pkg = require('../package.json')
+updateNotifier({pkg, updateCheckInterval: 1000}).notify()
 
 yargs.usage('usage: $0 <cmd>')
 	.command('download', 'to choose an article and then download it', () => { }, () => {
