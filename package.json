@@ -18,7 +18,7 @@
     "node-fetch": "^3.1.1",
     "samael": "^1.0.2",
     "update-notifier": "^3.0.0",
-    "yargs": "^12.0.2"
+    "yargs": "^17.6.2"
   },
   "repository": {
     "type": "git",
@@ -45,7 +45,7 @@
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-security": "^1.4.0",
     "eslint-plugin-unicorn": "^8.0.2",
-    "ts-jest": "^24.0.2",
+    "ts-jest": "^29.0.3",
     "typescript": "^3.4.5"
   }
 }
